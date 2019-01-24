@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
 using Word = Microsoft.Office.Interop.Word;
+using FoireVélo.database;
 
 namespace FoireVélo
 {

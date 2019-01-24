@@ -1,9 +1,12 @@
-﻿
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace FoireVélo.database
 {
     public class Article
     {
-        [PrimaryKey, AutoIncrement]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key]
         public int Id { get; set; }
         public ArticleType Type { get; set; }
         public float DimensionRoue { get; set; }

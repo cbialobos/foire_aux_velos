@@ -1,2 +1,2 @@
 # foire_aux_velos
-Bicycle faire selling program
+Bicycle fair selling program

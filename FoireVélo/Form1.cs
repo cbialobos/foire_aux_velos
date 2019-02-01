@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 using System.Configuration;
 using Word = Microsoft.Office.Interop.Word;
 using FoireVélo.database;
+using System.Data.SQLite;
 
 namespace FoireVélo
 {
@@ -15,22 +15,20 @@ namespace FoireVélo
         List<Article> m_articleList = new List<Article>();
 
         public Deposant currentDeposant;
-        SqlConnection cnx;
+        FoireAuxVeloDbContext cnx;
         public Form1()
         {
             InitializeComponent();
-            InitSqlConnection();
+            cnx = createDbContext();
             m_databaseInterface = new DataBaseInterface(cnx);
             InitDeposantList();
             InitArticleDataGrid();
              
         }
 
-        private void InitSqlConnection()
+        private FoireAuxVeloDbContext createDbContext()
         {
-            ConnectionStringSettings connex = ConfigurationManager.ConnectionStrings["DbConnection"];
-            cnx = new SqlConnection (connex.ConnectionString);
-            cnx.Open();
+            return new FoireAuxVeloDbContext("DbConnection");
         }
 
         private void InitDeposantList()

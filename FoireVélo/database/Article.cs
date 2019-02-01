@@ -15,7 +15,7 @@ namespace FoireVélo.database
         public string Commentaire { get; set; }
         public float PrixDemande { get; set; }
         public float PrixMini { get; set; }
-        public float PrixVente { get; set;}
+        public float? PrixVente { get; set;}
         public float PrixRevientClient { get; set; }
         public string Couleur { get; set; }
         public string Code { get; set; }

@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Configuration;
 using Word = Microsoft.Office.Interop.Word;
 using FoireVélo.database;
-using System.Data.SQLite;
 
 namespace FoireVélo
 {
     public partial class Form1 : Form
     {
-        private DataBaseInterface m_databaseInterface;
+        private IDataBaseInterface m_databaseInterface;
         public List<Deposant> deposantList = new List<Deposant>();
         List<Article> m_articleList = new List<Article>();
 

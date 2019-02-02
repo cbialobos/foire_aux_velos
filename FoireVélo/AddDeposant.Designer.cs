@@ -52,7 +52,7 @@
             this.label2.Location = new System.Drawing.Point(10, 40);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(43, 13);
-            this.label2.TabIndex = 1;
+            this.label2.TabIndex = 2;
             this.label2.Text = "Prénom";
             // 
             // label3
@@ -61,7 +61,7 @@
             this.label3.Location = new System.Drawing.Point(10, 70);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 13);
-            this.label3.TabIndex = 2;
+            this.label3.TabIndex = 4;
             this.label3.Text = "Téléphone";
             // 
             // txtNom
@@ -69,7 +69,7 @@
             this.txtNom.Location = new System.Drawing.Point(100, 10);
             this.txtNom.Name = "txtNom";
             this.txtNom.Size = new System.Drawing.Size(100, 20);
-            this.txtNom.TabIndex = 4;
+            this.txtNom.TabIndex = 1;
             // 
             // txtTelephone
             // 
@@ -83,14 +83,14 @@
             this.txtPrenom.Location = new System.Drawing.Point(100, 40);
             this.txtPrenom.Name = "txtPrenom";
             this.txtPrenom.Size = new System.Drawing.Size(100, 20);
-            this.txtPrenom.TabIndex = 6;
+            this.txtPrenom.TabIndex = 3;
             // 
             // btnSave
             // 
             this.btnSave.Location = new System.Drawing.Point(100, 96);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(58, 23);
-            this.btnSave.TabIndex = 7;
+            this.btnSave.TabIndex = 6;
             this.btnSave.Text = "OK";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);

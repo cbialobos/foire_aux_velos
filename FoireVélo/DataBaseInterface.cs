@@ -7,44 +7,44 @@ namespace FoireVélo
 {
     public class DataBaseInterface : IDataBaseInterface
     {
-        private FoireAuxVeloDbContext m_Sqlconnection;
-        public DataBaseInterface(FoireAuxVeloDbContext cnx)
+        private FoireAuxVeloDbContext m_context;
+        public DataBaseInterface(FoireAuxVeloDbContext context)
         {
-            m_Sqlconnection = cnx;
+            m_context = context;
         }
 
         public List<Deposant> GetDeposantList()
         {
-            return m_Sqlconnection.Deposants.OrderBy(x => x.Nom).ToList();
+            return m_context.Deposants.OrderBy(x => x.Nom).ToList();
         }
 
         public void InsertDeposant(string nom, string prenom, string telephone)
         {
-            m_Sqlconnection.Deposants.Add(new Deposant { Nom = nom, Prenom = prenom, telephone = telephone });
-            m_Sqlconnection.SaveChanges();
+            m_context.Deposants.Add(new Deposant { Nom = nom, Prenom = prenom, telephone = telephone });
+            m_context.SaveChanges();
         }
 
         public int GetNbDeposant()
         {
-            return m_Sqlconnection.Deposants.Count();
+            return m_context.Deposants.Count();
         }
 
 
         public int GetNBArticles()
         {
-            return m_Sqlconnection.Articles.Count();
+            return m_context.Articles.Count();
         }
 
         public double GetTotalVente()
         {
-            return m_Sqlconnection.Articles.Sum(x => x.PrixVente.GetValueOrDefault());
+            return m_context.Articles.Sum(x => x.PrixVente.GetValueOrDefault());
         }
 
 
         public double GetBenefVente()
         {
-            var TotalVente = m_Sqlconnection.Articles.Sum(x => x.PrixVente.GetValueOrDefault());
-            var PrixRevientClient = m_Sqlconnection.Articles.Sum(x => x.PrixRevientClient);
+            var TotalVente = m_context.Articles.Sum(x => x.PrixVente.GetValueOrDefault());
+            var PrixRevientClient = m_context.Articles.Sum(x => x.PrixRevientClient);
             return (TotalVente - PrixRevientClient);
         }
 
@@ -62,69 +62,68 @@ namespace FoireVélo
 
         public int InsertArticle(Article article)
         {
-            m_Sqlconnection.Articles.Add(article);
-            m_Sqlconnection.SaveChanges();
+            m_context.Articles.Add(article);
+            m_context.SaveChanges();
             return article.Id;
         }
 
         public void UpdateArticleCode(string articleCode, int articleId)
         {
-            Article article = new Article { Id = articleId };
-            m_Sqlconnection.Articles.Attach(article);
+            var article = m_context.Articles.Find(articleId);
             article.Code = articleCode;
-            m_Sqlconnection.SaveChanges();
+            m_context.SaveChanges();
         }
 
         public void UpdateArticle(Article article)
         {
-            m_Sqlconnection.Articles.Attach(article);
-            m_Sqlconnection.SaveChanges();
+            m_context.Articles.Attach(article);
+            m_context.SaveChanges();
         }
 
         internal void DeleteArticle(int articleId)
         {
             Article article = new Article { Id = articleId };
-            m_Sqlconnection.Articles.Attach(article);
-            m_Sqlconnection.Articles.Remove(article);
-            m_Sqlconnection.SaveChanges();
+            m_context.Articles.Attach(article);
+            m_context.Articles.Remove(article);
+            m_context.SaveChanges();
         }
 
         internal void UpdateDeposant(int id, string nom, string prenom, string telephone)
         {
             Deposant deposant = new Deposant { Id = id };
-            m_Sqlconnection.Deposants.Attach(deposant);
+            m_context.Deposants.Attach(deposant);
             deposant.Nom = nom;
             deposant.Prenom = prenom;
             deposant.telephone = telephone;
-            m_Sqlconnection.SaveChanges();
+            m_context.SaveChanges();
         }
 
         internal void DeleteDeposant(int deposantId)
         {
             Deposant deposant = new Deposant { Id = deposantId };
-            m_Sqlconnection.Deposants.Attach(deposant);
-            m_Sqlconnection.Deposants.Remove(deposant);
-            m_Sqlconnection.SaveChanges();
+            m_context.Deposants.Attach(deposant);
+            m_context.Deposants.Remove(deposant);
+            m_context.SaveChanges();
         }
 
         public List<Article> GetArticlesByDeposant(int deposantId)
         {
-            return m_Sqlconnection.Articles.Where(a => a.DeposantId == deposantId).OrderBy(a => a.Code).ToList();
+            return m_context.Articles.Where(a => a.DeposantId == deposantId).OrderBy(a => a.Code).ToList();
         }
 
         public List<Article> GetUnsoldedArticlesByDeposant(int deposantId)
         {
-            return m_Sqlconnection.Articles.Where(x => x.DeposantId == deposantId && x.PrixVente == 0 || x.PrixVente == null).OrderBy(x => x.Code).ToList();
+            return m_context.Articles.Where(x => x.DeposantId == deposantId && x.PrixVente == 0 || x.PrixVente == null).OrderBy(x => x.Code).ToList();
         }
 
         public List<Article> GetSaleArticlesByDeposant(int deposantId)
         {
-            return m_Sqlconnection.Articles.Where(x => x.DeposantId == deposantId && x.PrixVente != 0).OrderBy(x => x.Code).ToList();
+            return m_context.Articles.Where(x => x.DeposantId == deposantId && x.PrixVente != 0).OrderBy(x => x.Code).ToList();
         }
 
         public List<Article> GetArticleList()
         {
-            return m_Sqlconnection.Articles.OrderBy(x => x.Code).ToList();
+            return m_context.Articles.OrderBy(x => x.Code).ToList();
         }
 
         public int UpdatePrixVenteArticle(int articleId, float prixVente)
@@ -132,15 +131,18 @@ namespace FoireVélo
             double prixRevientClient = PrixVenteToPrixClient(prixVente);
 
             Article article = new Article { Id = articleId };
-            m_Sqlconnection.Articles.Attach(article);
+            m_context.Articles.Attach(article);
             article.PrixVente = prixVente;
             article.PrixRevientClient = (float)prixRevientClient;
-            return m_Sqlconnection.SaveChanges();
+            return m_context.SaveChanges();
         }
 
         public List<Article> GetDiscountArticleNotSold()
         {
-            return m_Sqlconnection.Articles.Where(a => (a.PrixMini != 0 && a.PrixMini != a.PrixDemande) && (a.PrixVente == 0 || a.PrixVente == null)).OrderBy(x => x.Code).ToList();
+            return m_context
+                .Articles
+                .Where(a => (a.PrixMini != 0 && a.PrixMini != a.PrixDemande) && (a.PrixVente == 0 || a.PrixVente == null))
+                .OrderBy(x => x.Code).ToList();
         }
 
         public double PrixVenteToPrixClient(double prixVente)

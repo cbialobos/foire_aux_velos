@@ -160,7 +160,7 @@
             this.label6.Location = new System.Drawing.Point(12, 259);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(69, 13);
-            this.label6.TabIndex = 10;
+            this.label6.TabIndex = 12;
             this.label6.Text = "Prix de vente";
             // 
             // nbPrixVente
@@ -173,7 +173,7 @@
             0});
             this.nbPrixVente.Name = "nbPrixVente";
             this.nbPrixVente.Size = new System.Drawing.Size(120, 20);
-            this.nbPrixVente.TabIndex = 11;
+            this.nbPrixVente.TabIndex = 13;
             // 
             // nbPrixRevientClient
             // 
@@ -185,7 +185,7 @@
             0});
             this.nbPrixRevientClient.Name = "nbPrixRevientClient";
             this.nbPrixRevientClient.Size = new System.Drawing.Size(120, 20);
-            this.nbPrixRevientClient.TabIndex = 13;
+            this.nbPrixRevientClient.TabIndex = 22;
             // 
             // label7
             // 
@@ -193,7 +193,7 @@
             this.label7.Location = new System.Drawing.Point(363, 259);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(87, 13);
-            this.label7.TabIndex = 12;
+            this.label7.TabIndex = 21;
             this.label7.Text = "Prix revient client";
             // 
             // btnToPrixClient
@@ -202,7 +202,7 @@
             this.btnToPrixClient.Location = new System.Drawing.Point(281, 251);
             this.btnToPrixClient.Name = "btnToPrixClient";
             this.btnToPrixClient.Size = new System.Drawing.Size(40, 18);
-            this.btnToPrixClient.TabIndex = 14;
+            this.btnToPrixClient.TabIndex = 17;
             this.btnToPrixClient.Text = "->";
             this.btnToPrixClient.UseVisualStyleBackColor = true;
             this.btnToPrixClient.Click += new System.EventHandler(this.btnToPrixClient_Click);
@@ -213,7 +213,7 @@
             this.btnToPrixVente.Location = new System.Drawing.Point(281, 273);
             this.btnToPrixVente.Name = "btnToPrixVente";
             this.btnToPrixVente.Size = new System.Drawing.Size(40, 18);
-            this.btnToPrixVente.TabIndex = 15;
+            this.btnToPrixVente.TabIndex = 18;
             this.btnToPrixVente.Text = "<-";
             this.btnToPrixVente.UseVisualStyleBackColor = true;
             this.btnToPrixVente.Click += new System.EventHandler(this.btnToPrixVente_Click);
@@ -224,7 +224,7 @@
             this.label8.Location = new System.Drawing.Point(12, 229);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(43, 13);
-            this.label8.TabIndex = 16;
+            this.label8.TabIndex = 10;
             this.label8.Text = "Couleur";
             // 
             // txtCouleur
@@ -232,7 +232,7 @@
             this.txtCouleur.Location = new System.Drawing.Point(129, 229);
             this.txtCouleur.Name = "txtCouleur";
             this.txtCouleur.Size = new System.Drawing.Size(100, 20);
-            this.txtCouleur.TabIndex = 17;
+            this.txtCouleur.TabIndex = 11;
             // 
             // BtnToPrixVenteSolde
             // 
@@ -240,7 +240,7 @@
             this.BtnToPrixVenteSolde.Location = new System.Drawing.Point(281, 333);
             this.BtnToPrixVenteSolde.Name = "BtnToPrixVenteSolde";
             this.BtnToPrixVenteSolde.Size = new System.Drawing.Size(40, 18);
-            this.BtnToPrixVenteSolde.TabIndex = 23;
+            this.BtnToPrixVenteSolde.TabIndex = 20;
             this.BtnToPrixVenteSolde.Text = "<-";
             this.BtnToPrixVenteSolde.UseVisualStyleBackColor = true;
             this.BtnToPrixVenteSolde.Click += new System.EventHandler(this.BtnToPrixVenteSolde_Click);
@@ -251,7 +251,7 @@
             this.BtnToPrixSoldeClient.Location = new System.Drawing.Point(281, 311);
             this.BtnToPrixSoldeClient.Name = "BtnToPrixSoldeClient";
             this.BtnToPrixSoldeClient.Size = new System.Drawing.Size(40, 18);
-            this.BtnToPrixSoldeClient.TabIndex = 22;
+            this.BtnToPrixSoldeClient.TabIndex = 19;
             this.BtnToPrixSoldeClient.Text = "->";
             this.BtnToPrixSoldeClient.UseVisualStyleBackColor = true;
             this.BtnToPrixSoldeClient.Click += new System.EventHandler(this.BtnToPrixSoldeClient_Click);
@@ -266,7 +266,7 @@
             0});
             this.nbPrixSoldeClient.Name = "nbPrixSoldeClient";
             this.nbPrixSoldeClient.Size = new System.Drawing.Size(120, 20);
-            this.nbPrixSoldeClient.TabIndex = 21;
+            this.nbPrixSoldeClient.TabIndex = 24;
             // 
             // label9
             // 
@@ -274,7 +274,7 @@
             this.label9.Location = new System.Drawing.Point(363, 319);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(87, 13);
-            this.label9.TabIndex = 20;
+            this.label9.TabIndex = 23;
             this.label9.Text = "Prix revient client";
             // 
             // nbPrixMini
@@ -287,7 +287,7 @@
             0});
             this.nbPrixMini.Name = "nbPrixMini";
             this.nbPrixMini.Size = new System.Drawing.Size(120, 20);
-            this.nbPrixMini.TabIndex = 19;
+            this.nbPrixMini.TabIndex = 15;
             // 
             // label10
             // 
@@ -295,7 +295,7 @@
             this.label10.Location = new System.Drawing.Point(12, 319);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(52, 13);
-            this.label10.TabIndex = 18;
+            this.label10.TabIndex = 14;
             this.label10.Text = "Prix soldé";
             // 
             // btnOK
@@ -303,7 +303,7 @@
             this.btnOK.Location = new System.Drawing.Point(264, 415);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 24;
+            this.btnOK.TabIndex = 16;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);

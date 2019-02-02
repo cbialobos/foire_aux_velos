@@ -1,5 +1,6 @@
 ﻿using SQLite.CodeFirst;
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace FoireVélo.database
 {
@@ -14,6 +15,9 @@ namespace FoireVélo.database
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            // Database does not pluralize table names
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+
             var sqliteConnectionInitializer = new SqliteCreateDatabaseIfNotExists<FoireAuxVeloDbContext>(modelBuilder);
             Database.SetInitializer(sqliteConnectionInitializer);
         }
